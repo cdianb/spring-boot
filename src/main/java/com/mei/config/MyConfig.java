@@ -1,10 +1,12 @@
 package com.mei.config;
 
 import ch.qos.logback.core.db.DBHelper;
+import com.mei.beans.Car;
 import com.mei.beans.Pet;
 import com.mei.beans.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.*;
 
 
@@ -26,6 +28,9 @@ import org.springframework.context.annotation.*;
 //@ConditionalOnBean(name = "tom")
 @ConditionalOnMissingBean(name = "tom")
 @ImportResource("classpath:beans.xml")
+//开启Car的配置配置功能
+//把这个car组件自动注册到容器之中
+@EnableConfigurationProperties(Car.class)
 public class MyConfig {
     /**
      * 外部无论对配置类中的这个组件注册方法调用多少次，获取到的都是之前注册容器中的单实例对象
