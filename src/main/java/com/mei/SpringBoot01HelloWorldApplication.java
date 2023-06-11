@@ -27,26 +27,26 @@ public class SpringBoot01HelloWorldApplication {
         }
 
         //3.从容器中获取组件
-        Pet tom01 = run.getBean("tom", Pet.class);
-        Pet tom02 = run.getBean("tom", Pet.class);
-        System.out.println(tom02 == tom01);
-
-        //4.com.mei.config.MyConfig$$EnhancerBySpringCGLIB$$36be1327@1e469dfd
-        MyConfig bean = run.getBean(MyConfig.class);
-        System.out.println(bean);
-
-        //如果@Configuration(proxyBeanMethods = true) 代理对象调用方法。SpringBoot总会检查这组件是否在容器中，保持组件单实例
-        User user = bean.user01();
-        User user1 = bean.user01();
-        System.out.println(user1 == user);
-
-        User user01 = run.getBean("user01", User.class);
-        Pet tom = run.getBean("tom", Pet.class);
-
-        System.out.println("用户信息：" + user01.toString());
-        System.out.println("用户的宠物：" + user01.getPet());
-        System.out.println("容器内的宠物：" + tom);
-        System.out.println("用户的宠物是不是容器内的宠物：" + (user01.getPet() == tom));
+        //Pet tom01 = run.getBean("tom", Pet.class);
+        //Pet tom02 = run.getBean("tom", Pet.class);
+        //System.out.println(tom02 == tom01);
+        //
+        ////4.com.mei.config.MyConfig$$EnhancerBySpringCGLIB$$36be1327@1e469dfd
+        //MyConfig bean = run.getBean(MyConfig.class);
+        //System.out.println(bean);
+        //
+        ////如果@Configuration(proxyBeanMethods = true) 代理对象调用方法。SpringBoot总会检查这组件是否在容器中，保持组件单实例
+        //User user = bean.user01();
+        //User user1 = bean.user01();
+        //System.out.println(user1 == user);
+        //
+        //User user01 = run.getBean("user01", User.class);
+        //Pet tom = run.getBean("tom", Pet.class);
+        //
+        //System.out.println("用户信息：" + user01.toString());
+        //System.out.println("用户的宠物：" + user01.getPet());
+        //System.out.println("容器内的宠物：" + tom);
+        //System.out.println("用户的宠物是不是容器内的宠物：" + (user01.getPet() == tom));
 
         //5.获取组件
         String[] namesForType = run.getBeanNamesForType(User.class);
@@ -56,6 +56,11 @@ public class SpringBoot01HelloWorldApplication {
         }
         DBHelper bean1 = run.getBean(DBHelper.class);
         System.out.println(bean1);
+
+        //查看容器中是否拥有组件
+        boolean tom = run.containsBean("tom");
+        System.out.println("容器中是否包含tom组件：" + tom);
+        System.out.println("容器中是否包含user01组件：" + run.containsBean("user01"));
 
     }
 
