@@ -4,8 +4,12 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="user01" class="com.mei.beans.User">
-        <property name="name" value="user01"/>
+    <bean id="haha" class="com.mei.beans.User">
+        <property name="name" value="zhangsan"/>
+        <property name="age" value="18"/>
+    </bean>
+    <bean id="hehe" class="com.mei.beans.Pet">
+        <property name="name" value="tomcat"/>
     </bean>
 
 </beans>

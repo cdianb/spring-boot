@@ -62,6 +62,9 @@ public class SpringBoot01HelloWorldApplication {
         System.out.println("容器中是否包含tom组件：" + tom);
         System.out.println("容器中是否包含user01组件：" + run.containsBean("user01"));
 
+        System.out.println("容器中是否包含haha组件：" + run.containsBean("haha"));
+        System.out.println("容器中是否包含hehe组件：" + run.containsBean("hehe"));
+
     }
 
 }

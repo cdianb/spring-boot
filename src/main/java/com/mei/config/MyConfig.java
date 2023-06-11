@@ -5,10 +5,7 @@ import com.mei.beans.Pet;
 import com.mei.beans.User;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Conditional;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.*;
 
 
 /**
@@ -20,12 +17,15 @@ import org.springframework.context.annotation.Import;
  *    组件依赖必须使用Full模式默认。其他默认是否Lite模式
  * 4.@Import({User.class, DBHelper.class})
  *   给容器中自动创建出这两个类型的组件,默认组件的名字就是全类名
+ *
+ * 5.@ImportResource("classpath:beans.xml")导入spring的配置文件
  */
 
 @Import({User.class, DBHelper.class})
 @Configuration(proxyBeanMethods = true) //告诉springboot这是一个配置类 == 以前的配置文件
 //@ConditionalOnBean(name = "tom")
 @ConditionalOnMissingBean(name = "tom")
+@ImportResource("classpath:beans.xml")
 public class MyConfig {
     /**
      * 外部无论对配置类中的这个组件注册方法调用多少次，获取到的都是之前注册容器中的单实例对象
