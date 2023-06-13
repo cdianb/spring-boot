@@ -1,5 +1,6 @@
 package com.mei.beans;
 
+import lombok.*;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
@@ -8,6 +9,11 @@ import org.springframework.stereotype.Component;
  */
 //@Component
 @ConfigurationProperties(prefix = "mycar")
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+@EqualsAndHashCode
 public class Car {
     private String brand;
     private Integer price;

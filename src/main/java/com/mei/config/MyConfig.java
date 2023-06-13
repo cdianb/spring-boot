@@ -16,7 +16,7 @@ import org.springframework.context.annotation.*;
  * 3.proxyBeanMethods：代理bean的方法
  *    Full(proxyBeanMethods = true)
  *    Lite(proxyBeanMethods = false)
- *    组件依赖必须使用Full模式默认。其他默认是否Lite模式
+ *    组件依赖必须使用Full模式默认。其他默认是Lite模式
  * 4.@Import({User.class, DBHelper.class})
  *   给容器中自动创建出这两个类型的组件,默认组件的名字就是全类名
  *
@@ -24,7 +24,7 @@ import org.springframework.context.annotation.*;
  */
 
 @Import({User.class, DBHelper.class})
-@Configuration(proxyBeanMethods = true) //告诉springboot这是一个配置类 == 以前的配置文件
+@Configuration(proxyBeanMethods = true) //告诉springboot这是一个配置类 == 配置文件
 //@ConditionalOnBean(name = "tom")
 @ConditionalOnMissingBean(name = "tom")
 @ImportResource("classpath:beans.xml")
