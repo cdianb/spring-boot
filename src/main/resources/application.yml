@@ -1,0 +1,10 @@
+spring:
+  mvc:
+    static-path-pattern: /res/**
+
+#改变静态资源路径
+  resources:
+    static-locations: [classpath:/haha/]
+    add-mappings: true
+    cache:
+      period: 11000
